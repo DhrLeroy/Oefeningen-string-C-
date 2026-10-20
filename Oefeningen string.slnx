@@ -1,0 +1,28 @@
+<Solution>
+  <Folder Name="/Oefeningen/" />
+  <Folder Name="/Oefeningen/Oefening 1/">
+    <Project Path="Oefening4A/Oefening4A.csproj" />
+    <Project Path="Oplossing4A/Oplossing4A.csproj" />
+    <Project Path="TestOefening4A/TestOefening4A.csproj" />
+  </Folder>
+  <Folder Name="/Oefeningen/Oefening 2/">
+    <Project Path="Oefening4B/Oefening4B.csproj" />
+    <Project Path="Oplossing4B/Oplossing4B.csproj" />
+    <Project Path="TestOefening4B/TestOefening4B.csproj" />
+  </Folder>
+  <Folder Name="/Oefeningen/Oefening 3/">
+    <Project Path="Oefening4C/Oefening4C.csproj" />
+    <Project Path="Oplossing4C/Oplossing4C.csproj" />
+    <Project Path="TestOefening4C/TestOefening4C.csproj" />
+  </Folder>
+  <Folder Name="/Oefeningen/Oefening 4/">
+    <Project Path="Oefening4D/Oefening4D.csproj" Id="80ee0d44-7ba0-4139-a308-262e99c411a1" />
+    <Project Path="TestOefening4D/TestOefening4D.csproj" />
+  </Folder>
+  <Folder Name="/Oefeningen/Oefening 5/">
+    <Project Path="Oefening4E/Oefening4E.csproj" />
+    <Project Path="Oplossing4E/Oplossing4E.csproj" />
+  </Folder>
+  <Project Path="ConsoleApp1/Voorbeelden.csproj" />
+  <Project Path="TestHelper/TestHelper.csproj" />
+</Solution>
