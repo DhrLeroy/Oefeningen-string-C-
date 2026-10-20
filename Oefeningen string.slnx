@@ -1,27 +1,52 @@
 <Solution>
   <Folder Name="/Oefeningen/" />
-  <Folder Name="/Oefeningen/Oefening 1/">
+  <Folder Name="/Oefeningen/Oefening 01/">
     <Project Path="Oefening4A/Oefening4A.csproj" />
     <Project Path="Oplossing4A/Oplossing4A.csproj" />
     <Project Path="TestOefening4A/TestOefening4A.csproj" />
   </Folder>
-  <Folder Name="/Oefeningen/Oefening 2/">
+  <Folder Name="/Oefeningen/Oefening 02/">
     <Project Path="Oefening4B/Oefening4B.csproj" />
     <Project Path="Oplossing4B/Oplossing4B.csproj" />
     <Project Path="TestOefening4B/TestOefening4B.csproj" />
   </Folder>
-  <Folder Name="/Oefeningen/Oefening 3/">
+  <Folder Name="/Oefeningen/Oefening 03/">
     <Project Path="Oefening4C/Oefening4C.csproj" />
     <Project Path="Oplossing4C/Oplossing4C.csproj" />
     <Project Path="TestOefening4C/TestOefening4C.csproj" />
   </Folder>
-  <Folder Name="/Oefeningen/Oefening 4/">
+  <Folder Name="/Oefeningen/Oefening 04/">
     <Project Path="Oefening4D/Oefening4D.csproj" Id="80ee0d44-7ba0-4139-a308-262e99c411a1" />
     <Project Path="TestOefening4D/TestOefening4D.csproj" />
   </Folder>
-  <Folder Name="/Oefeningen/Oefening 5/">
+  <Folder Name="/Oefeningen/Oefening 05/">
     <Project Path="Oefening4E/Oefening4E.csproj" />
     <Project Path="Oplossing4E/Oplossing4E.csproj" />
+  </Folder>
+  <Folder Name="/Oefeningen/Oefening 06/">
+    <Project Path="Oefening4F/Oefening4F.csproj" />
+    <Project Path="Oplossing4F/Oplossing4F.csproj" />
+    <Project Path="TestOefening4F/TestOefening4F.csproj" />
+  </Folder>
+  <Folder Name="/Oefeningen/Oefening 07/">
+    <Project Path="Oefening4G/Oefening4G.csproj" Id="57995f4b-b1d5-4953-9e24-23ec0c66a01c" />
+    <Project Path="Oplossing4G/Oplossing4G.csproj" />
+  </Folder>
+  <Folder Name="/Oefeningen/Oefening 08/">
+    <Project Path="../Cursus-Csharp/Oefening 4H/Oefening4H.csproj" />
+    <Project Path="Oplossing4H/Oplossing4H.csproj" />
+    <Project Path="TestOefening4H/TestOefening4H.csproj" />
+  </Folder>
+  <Folder Name="/Oefeningen/Oefening 09/">
+    <Project Path="Oefening4I/Oefening4I.csproj" Id="d18974cf-1557-42fc-b9c4-132223331cd6" />
+  </Folder>
+  <Folder Name="/Oefeningen/Oefening 10/">
+    <Project Path="../Cursus-Csharp/Oefening 4J/Oefening4J.csproj" />
+    <Project Path="Oplossing4J/Oplossing4J.csproj" />
+    <Project Path="TestOefening4J/TestOefening4J.csproj" />
+  </Folder>
+  <Folder Name="/Oefeningen/Oefening 11/">
+    <Project Path="Oefening4K/Oefening4K.csproj" />
   </Folder>
   <Project Path="ConsoleApp1/Voorbeelden.csproj" />
   <Project Path="TestHelper/TestHelper.csproj" />
