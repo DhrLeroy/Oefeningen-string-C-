@@ -3,7 +3,7 @@
 namespace TestOefening4F
 {
     [TestClass]
-    public sealed class Test4F
+    public sealed class TestF
     {
         [TestMethod]
         public void TestMethodbanaan()
@@ -11,9 +11,9 @@ namespace TestOefening4F
             HelperMethods.AssertOutputs("Geef een woord in: B A N A A N", "banaan");
         }
         [TestMethod]
-        public void TestMethodviso()
+        public void TestMethodCampusImpuls()
         {
-            HelperMethods.AssertOutputs("Geef een woord in: V I S O", "viso");
+            HelperMethods.AssertOutputs("Geef een woord in: C A M P U S   I M P U L S", "campus impuls");
         }
     }
 }

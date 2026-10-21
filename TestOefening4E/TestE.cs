@@ -1,7 +1,7 @@
 ﻿namespace TestOefening4E
 {
     [TestClass]
-    public sealed class Test4E
+    public sealed class TestE
     {
         [TestMethod]
         public void TestIkeetbanaanineenmotorboot()
@@ -12,6 +12,11 @@
         public void TestEenBanaan()
         {
             TestHelper.HelperMethods.AssertOutputs("En banan", "Een banaan");
+        }
+        [TestMethod]
+        public void TestAanhetmeerziteenbanaanendiedroomtvandezee()
+        {
+            TestHelper.HelperMethods.AssertOutputs("An het mer zit en banan en die dromt van de ze", "Aan het meer zit een banaan en die droomt van de zee");
         }
     }
 }

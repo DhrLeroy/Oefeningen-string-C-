@@ -1,7 +1,7 @@
 ﻿namespace TestOefening4D
 {
     [TestClass]
-    public sealed class Test4D
+    public sealed class TestD
     {
         [TestMethod]
         public void TestHallo()

@@ -13,9 +13,6 @@ Nog 9 beurten.
 Letter: a 
 A____ 
 B, A 
-Informatica 
-Pagina 35 van 189 
-Controlestructuren 
 Nog 8 beurten. 
 Letter: P 
 App__ 

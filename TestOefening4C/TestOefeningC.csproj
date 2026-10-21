@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Oefening4C\Oefening4C.csproj" />
+    <ProjectReference Include="..\Oefening4C\OefeningC.csproj" />
     <ProjectReference Include="..\TestHelper\TestHelper.csproj" />
   </ItemGroup>
 

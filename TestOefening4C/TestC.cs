@@ -1,8 +1,9 @@
 ﻿namespace TestOefening4C
 {
     [TestClass]
-    public sealed class Test4C
+    public sealed class TestC
     {
+
         [TestMethod]
         public void TestAssassinsCreedShadowsSpecialEditionPS57999()
         {

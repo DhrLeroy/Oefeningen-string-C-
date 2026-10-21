@@ -1,11 +1,11 @@
 ﻿var invoer = Console.ReadLine();
 
-string zonder_dubbels = invoer;
+string zonder_dubbels = invoer.Substring(0,1);
 
-for (int i = 0; i < invoer.Length; i++)
+for (int i = 1; i < invoer.Length; i++)
 {
-    var teken = invoer.Substring(i, 1);
-    zonder_dubbels = zonder_dubbels.Replace(teken + teken, teken, StringComparison.CurrentCultureIgnoreCase);
+    if (!invoer.Substring(i, 1).Equals(invoer.Substring(i - 1, 1), StringComparison.CurrentCultureIgnoreCase))
+        zonder_dubbels += invoer.Substring(i, 1);
 }
 
 Console.WriteLine(zonder_dubbels);                     

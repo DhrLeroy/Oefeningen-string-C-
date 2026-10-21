@@ -1,7 +1,7 @@
 ﻿namespace TestOefening4B
 {
     [TestClass]
-    public sealed class Test4B
+    public sealed class TestB
     {
         [TestMethod]
         public void TestDitiseenZin()
