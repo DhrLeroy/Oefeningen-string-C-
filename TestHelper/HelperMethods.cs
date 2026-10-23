@@ -192,8 +192,113 @@ namespace TestHelper
         }
     }
 
-    // Hulpmethode voor de nette foutmeldingen naar de leerling (uit de vorige stap)
-    private static void HandleArgumentException(MethodInfo method, object[] methodParameters, ArgumentException ex, string className, string methodName)
+        public static void AssertConstructor(string className, params object[] constructorArguments)
+        {
+            var assemblyName = Assembly.GetCallingAssembly().GetName().Name.Substring(4);
+            var assembly = Assembly.Load(assemblyName);
+
+            className = $"{assemblyName}.{className}";
+
+            Type type = assembly.GetType(className)
+                        ?? throw new TypeLoadException($"Klasse '{className}' kon niet worden gevonden.");
+
+            Type[] argumentTypes = constructorArguments.Select(arg => arg?.GetType() ?? typeof(object)).ToArray();
+
+            ConstructorInfo constructor = type.GetConstructor(
+                BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance,
+                null,
+                argumentTypes,
+                null);
+
+            if (constructor == null)
+            {
+                // Als er geen exacte match is, geven we duidelijke feedback over wat de leerling wél heeft
+                var alleConstructors = type.GetConstructors(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+                string beschikbareConstructors = string.Join("\n", alleConstructors.Select(c => $"- {className}({string.Join(", ", c.GetParameters().Select(p => $"{p.Name} : {p.ParameterType.Name}"))})"));
+
+                Assert.Fail($"Geen geschikte constructor gevonden in '{className}' voor de meegegeven types: ({string.Join(", ", argumentTypes.Select(t => t.Name))}).\n" +
+                            $"Beschikbare constructors in de klasse {className}:\n{beschikbareConstructors}");
+            }
+
+            object instance;
+            try
+            {
+                instance = constructor.Invoke(constructorArguments);
+            }
+            catch (TargetInvocationException tex)
+            {
+                Assert.Fail($"De constructor van '{className}' crashte tijdens het uitvoeren.\nTechnische fout: {tex.InnerException?.Message}");
+                return;
+            }
+
+            ParameterInfo[] constructorParams = constructor.GetParameters();
+
+            for (int i = 0; i < constructorParams.Length; i++)
+            {
+                Type paramType = constructorParams[i].ParameterType;
+                string paramName = constructorParams[i].Name.Replace("_","");
+                object expectedValue = constructorArguments[i];
+
+                PropertyInfo property = type.GetProperties(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
+                    .FirstOrDefault(p => p.Name.Replace("_","").Equals(paramName, StringComparison.OrdinalIgnoreCase) && paramType == p.PropertyType);
+
+                if(property == null)
+                {
+                    try
+                    {
+                        property = type.GetProperties(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
+                        .SingleOrDefault(p => p.Name.Replace("_", "").StartsWith(paramName, StringComparison.OrdinalIgnoreCase)
+                        && paramType == p.PropertyType);
+                    }catch(InvalidOperationException e) when (e.Message.Contains("Sequence contains more than one matching element"))
+                    {
+                        Assert.Fail($"Er werden meerdere mogelijk properties gevonden voor de parameter {paramName} in de constructor {$"{className}({string.Join(", ", constructor.GetParameters().Select(p => $"{p.Name} : {p.ParameterType.Name}"))})"}.");
+                    }
+                }
+
+                FieldInfo field = type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
+                    .FirstOrDefault(f => f.Name.Replace("_", "").Equals(paramName, StringComparison.OrdinalIgnoreCase) && paramType == f.FieldType);
+
+
+
+                if (field == null)
+                {
+                    try
+                    {
+                        field = type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
+                        .SingleOrDefault(p => p.Name.Replace("_", "").StartsWith(paramName, StringComparison.OrdinalIgnoreCase)
+                        && paramType == p.FieldType);
+                    }
+                    catch (InvalidOperationException e) when (e.Message.Contains("Sequence contains more than one matching element"))
+                    {
+                        Assert.Fail($"Er werden meerdere mogelijk velden gevonden voor de parameter {paramName} in de constructor {$"{className}({string.Join(", ", constructor.GetParameters().Select(p => $"{p.Name} : {p.ParameterType.Name}"))})"}.");
+                    }
+                }
+                object actualValue = null;
+                bool foundMatch = false;
+
+                if (property != null)
+                {
+                    actualValue = property.GetValue(instance);
+                    foundMatch = true;
+                }
+                else if (field != null)
+                {
+                    actualValue = field.GetValue(instance);
+                    foundMatch = true;
+                }
+
+                if (!foundMatch)
+                {
+                    Assert.Fail($"De constructor verwacht de parameter '{paramName}', maar de klasse '{className}' heeft geen bijbehorende Property of Field (zoals '{paramName}' of '_{paramName}') om deze waarde in op te slaan.");
+                }
+
+                // Assert: Is de waarde correct overgenomen?
+                Assert.AreEqual(expectedValue, actualValue,
+                    $"De waarde voor '{paramName}' is niet correct ingesteld door de constructor van '{className}'.");
+            }
+        }
+
+        private static void HandleArgumentException(MethodInfo method, object[] methodParameters, ArgumentException ex, string className, string methodName)
     {
         ParameterInfo[] expectedParams = method.GetParameters();
         string errorFeedback = $"Fout bij het aanroepen van {className}.{methodName}():\n"+

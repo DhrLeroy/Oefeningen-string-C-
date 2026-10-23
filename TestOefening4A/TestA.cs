@@ -13,5 +13,10 @@
         {
             TestHelper.HelperMethods.AssertOutputs("Voornaam: Naam: E. S.", "EMMA", "stone");
         }
+        [TestMethod]
+        public void MaakDier()
+        {
+            TestHelper.HelperMethods.AssertConstructor("Dier", "slang");
+        }
     }
 }
