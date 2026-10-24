@@ -17,6 +17,7 @@
   </Folder>
   <Folder Name="/Oefeningen/Oefening 04/">
     <Project Path="Oefening4D/OefeningD.csproj" Id="80ee0d44-7ba0-4139-a308-262e99c411a1" />
+    <Project Path="OplossingD/OplossingD.csproj" Id="83eb88db-ca40-4081-b3af-a0652194569f" />
     <Project Path="TestOefening4D/TestOefeningD.csproj" />
   </Folder>
   <Folder Name="/Oefeningen/Oefening 05/">
@@ -41,6 +42,7 @@
   </Folder>
   <Folder Name="/Oefeningen/Oefening 09/">
     <Project Path="Oefening4I/OefeningI.csproj" Id="d18974cf-1557-42fc-b9c4-132223331cd6" />
+    <Project Path="OplossingI/OplossingI.csproj" Id="f8a72790-04b6-45a1-8dcf-3effac3bd07e" />
   </Folder>
   <Folder Name="/Oefeningen/Oefening 10/">
     <Project Path="../Cursus-Csharp/Oefening 4J/OefeningJ.csproj" />

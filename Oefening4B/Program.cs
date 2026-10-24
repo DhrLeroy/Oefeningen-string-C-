@@ -10,3 +10,7 @@ DIT is een zin.
 */
 
 string zin = Console.ReadLine();
+
+zin = zin.Substring(0, 1).ToUpper() + zin.Substring(1).ToLower();
+
+Console.WriteLine(zin);
